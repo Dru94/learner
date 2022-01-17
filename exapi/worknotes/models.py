@@ -4,14 +4,15 @@ from django.utils.text import slugify
 
 # Create your models here.
 TERM_CHOICES = [
-    ('one', 'one'),
-    ('two', 'two'),
-    ('three', 'three')
+    ('All', 'All'),
+    ('One', 'One'),
+    ('Two', 'Two'),
+    ('Three', 'Three')
 ]
 
 LEVEL_CHOICES = [
-    ('primary', 'primary'),
-    ('secondary', 'secondary')
+    ('Primary', 'Primary'),
+    ('Senior', 'Senior')
 ]
 
 
@@ -29,7 +30,7 @@ class Notes(models.Model):
     def __str__(self):
         return self.subject + self.topic + ' Class: ' + str(self.level) + str(self.level_number)
 
-    def save(self, *args, **kwargs):  # new
+    def save(self, *args, **kwargs):  # new 
         if not self.slug:
             self.slug = slugify(self.subject)
 
