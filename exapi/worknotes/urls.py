@@ -10,6 +10,6 @@ router.register(r'', views.NotesViewSet, basename="notes")
 
 urlpatterns = [
     path('download/<int:id>/', views.FileDownloadView.as_view(), name='notes_download')
-]
+] 
 
 urlpatterns += router.urls

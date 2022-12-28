@@ -28,7 +28,7 @@ class Quiz(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.subject + " " + self.topic + " Class: " + self.level + str(self.level_number) + " " + str(self.duration)
+        return self.subject + " " + self.topic + " Class: " + self.level + str(self.level_number)
 
     def getQuestions(self):
         return self.quiz.all()
@@ -42,7 +42,7 @@ class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.text
+        return self.question_text
 
 
 class Answer(models.Model):
@@ -53,7 +53,7 @@ class Answer(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "Question: " + self.question.text + " Answer: " + self.answer + " Correct: " + self.correct
+        return "Question: " + self.question.question_text + " Answer: " + self.answer_text + " Correct: " + str(self.correct)
 
 
 class Result(models.Model):

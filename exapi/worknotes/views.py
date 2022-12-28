@@ -20,7 +20,7 @@ class NotesViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
     permission_classes = [AllowAny]
     filter_backends = [filters.SearchFilter]
-    search_fields = ['subject', 'topic']
+    search_fields = ['subject', 'topic', 'level_number', 'level']
 
 
 class FileDownloadView(generics.ListAPIView):

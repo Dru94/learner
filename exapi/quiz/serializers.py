@@ -18,7 +18,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     quiz = QuizSerializer(required=True)
-    # answers = AnswerSerializer(many=True, required=True)
+    answers = AnswerSerializer(many=True, required=True)
 
     class Meta:
         model = Question
